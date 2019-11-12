@@ -3,14 +3,18 @@ handlers.updateLeaderboard = function (args, context){
 	// Showing we are entering function
 	log.info("UpdateLeaderboard -- Starting");
 		
+	var LeaderboardName = args.LeaderboardName;
+	var NewScore = args.NewScore;
+	var message = currentPlayerId + " " + LeaderboardName + " " + NewScore;
 	server.UpdatePlayerStatistics(
 	{
 	    PlayFabId: currentPlayerId,
-	    Statistics: [{StatisticName: args.LeaderboardName, Value: args.NewScore}],
+	    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
 	});
 	
 	// Showing we are leaving function
 	log.info("UpdateLeaderboard -- Leaving");
+	return { messageValue: message };
 };
 
 handlers.helloWorld = function (args, context) {
