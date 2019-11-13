@@ -19,10 +19,12 @@ handlers.updateLeaderboard = function (args, context){
 	
 	var arrayLength = playerStats.Statistics.length;
 	
-	response = arrayLength;
-	return { messageValue: response };
+	
 	
 	for(var i = 0; i < arrayLength; i++){
+		response = playerStats.Statistics[i].StatisticName;
+		return { messageValue: response };
+		
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
