@@ -35,7 +35,7 @@ handlers.updateLeaderboard = function (args, context){
 		response="";
 		return { messageValue: response };
 	} else {
-		response="older score is better." 
+		response="older score is better. OldScore:" +   currentScore.toString() + " newScore:" + NewScore.toString();
 		return { messageValue: response };
 	}
 	
