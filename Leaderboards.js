@@ -6,9 +6,23 @@ handlers.updateLeaderboard = function (args, context){
 	var NewScore = args.newscore;
 	
 	//do error checking here
+	var str = LeaderboardName;
+
+	if(str.includes("XboxOne_")){
+	  str = str.slice(8, str.length);
+	} else if (str.includes("PS4_")){
+	  str = str.slice(4, str.length);
+	} else if (str.includes("Steam_")){
+	  str = str.slice(6, str.length);
+	}
 	
-	response = leaderboardData["Mannahatta_Forward_F3000"].BestPossibleTime;
-	return { messageValue: response };
+	if(leaderboardData.hasOwnProperty(str)){
+		response = "yis";
+		return { messageValue: response };
+	} else {
+		response = "noplz";
+		return { messageValue: response };
+	}
 	
 	//get old value
 	var playerStats = server.GetPlayerStatistics(
