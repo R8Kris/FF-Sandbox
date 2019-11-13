@@ -24,14 +24,14 @@ handlers.updateLeaderboard = function (args, context){
 	for(var i = 0; i < arrayLength; i++){
 
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
-				response = playerStats.Statistics[i].Value;
-				return { messageValue: response };
-		
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
 			}
 		}
 	}
+	
+	response = currentScore;
+	return { messageValue: response };
 	
 	//check new score is better than old score
 	if(NewScore < currentScore){
