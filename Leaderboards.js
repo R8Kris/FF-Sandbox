@@ -17,10 +17,12 @@ handlers.updateLeaderboard = function (args, context){
 	}
 	
 	if(leaderboardData.hasOwnProperty(str)){
-		response = "yis";
-		return { messageValue: response };
+		if(NewScore < leaderboardData[str].BestPossibleTime){
+			response="This simply isn't even possible.";
+			return { messageValue: response };
+		}
 	} else {
-		response = "noplz";
+		response="This doesn't even exist.";
 		return { messageValue: response };
 	}
 	
