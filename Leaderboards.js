@@ -5,7 +5,7 @@ handlers.updateLeaderboard = function (args, context){
 		
 	var LeaderboardName = args.leaderboardname;
 	var NewScore = args.newscore;
-	var message = currentPlayerId + " " + LeaderboardName + " " + NewScore.toString();
+	var message = NewScore.toString();
 	server.UpdatePlayerStatistics(
 	{
 	    PlayFabId: currentPlayerId,
