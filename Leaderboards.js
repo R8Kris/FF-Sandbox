@@ -15,7 +15,7 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
-	var currentScore = Number.MAX_SAFE_NUMBER;
+	var currentScore = Number.MAX_VALUE;
 
 	return { messageValue: currentScore };
 	var arrayLength = playerStats.Statistics.length;
