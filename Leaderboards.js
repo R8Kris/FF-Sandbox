@@ -17,7 +17,12 @@ handlers.updateLeaderboard = function (args, context){
 	
 	var currentScore = Number.MAX_SAFE_NUMBER;
 	
-	for(var i = 0; i < playerStats.Statistics.length; i++){
+	var arrayLength = playerStats.Statistics.length;
+	
+	response = arrayLength;
+	return { messageValue: response };
+	
+	for(var i = 0; i < arrayLength; i++){
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
