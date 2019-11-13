@@ -1,29 +1,42 @@
 //Updates player leaderboards and statistics
 handlers.updateLeaderboard = function (args, context){
-	// Showing we are entering function
-	log.info("UpdateLeaderboard -- Starting");
-		
+	var response = "";
+	//Get values from payload
 	var LeaderboardName = args.leaderboardname;
 	var NewScore = args.newscore;
-	var message = NewScore.toString();
 	
+	//do error checking here
+	
+	
+	//get old value
 	var playerStats = server.GetPlayerStatistics(
 	{
 		PlayFabId: currentPlayerId,
 		StatisticNames: [LeaderboardName],
 	});
 	
+	var currentScore = Number.MAX_SAFE_NUMBER;
 	const obj = JSON.parse(playerStats);
+	for(var i = 0; i < obj.playerStats.Statistics.length; i++){
+		if(obj.playerStats.Statistics[i].StatisticName == LeaderboardName){
+			if(obj.playerStats.Statistics[i].Value < currentScore){
+			  currentScore = obj.playerStats.Statistics[i].Value;
+			}
+		}
+	}
 	
-	server.UpdatePlayerStatistics(
-	{
-	    PlayFabId: currentPlayerId,
-	    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
-	});
-	
-	// Showing we are leaving function
-	log.info("UpdateLeaderboard -- Leaving");
-	return { obj.playerStats.Statistics };
+	//check new score is better than old score
+	if(NewScore < currentScore){
+		server.UpdatePlayerStatistics(
+		{
+			PlayFabId: currentPlayerId,
+			Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
+		});
+	} else {
+		response = "older score is better.";
+	}
+
+	return { messageValue: response };
 };
 
 handlers.helloWorld = function (args, context) {
