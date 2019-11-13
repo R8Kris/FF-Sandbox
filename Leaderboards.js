@@ -32,11 +32,12 @@ handlers.updateLeaderboard = function (args, context){
 			PlayFabId: currentPlayerId,
 			Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
 		});
+		return { "" };
 	} else {
-		response = "older score is better.";
+		return { "older score is better." };
 	}
 
-	return { playerStats };
+	return { "something went wrong" };
 };
 
 handlers.helloWorld = function (args, context) {
