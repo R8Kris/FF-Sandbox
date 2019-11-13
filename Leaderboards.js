@@ -13,6 +13,8 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
+	const obj = JSON.parse(playerStats);
+	
 	server.UpdatePlayerStatistics(
 	{
 	    PlayFabId: currentPlayerId,
@@ -21,7 +23,7 @@ handlers.updateLeaderboard = function (args, context){
 	
 	// Showing we are leaving function
 	log.info("UpdateLeaderboard -- Leaving");
-	return { playerStats };
+	return { obj.playerStats.Statistics };
 };
 
 handlers.helloWorld = function (args, context) {
