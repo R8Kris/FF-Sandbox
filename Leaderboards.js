@@ -16,7 +16,8 @@ handlers.updateLeaderboard = function (args, context){
 	});
 	
 	var currentScore = Number.MAX_SAFE_NUMBER;
-	
+
+	return { messageValue: currentScore };
 	var arrayLength = playerStats.Statistics.length;
 	
 	
@@ -30,8 +31,7 @@ handlers.updateLeaderboard = function (args, context){
 		}
 	}
 	
-	response = currentScore;
-	return { messageValue: response };
+	
 	
 	//check new score is better than old score
 	if(NewScore < currentScore){
