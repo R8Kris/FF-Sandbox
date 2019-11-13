@@ -21,7 +21,7 @@ handlers.updateLeaderboard = function (args, context){
 	
 	// Showing we are leaving function
 	log.info("UpdateLeaderboard -- Leaving");
-	return { playerStats.Statistics };
+	return { playerStats };
 };
 
 handlers.helloWorld = function (args, context) {
