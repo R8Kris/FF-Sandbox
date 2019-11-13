@@ -16,7 +16,9 @@ handlers.updateLeaderboard = function (args, context){
 	});
 	
 	var currentScore = Number.MAX_SAFE_NUMBER;
+	
 	const obj = JSON.parse(playerStats);
+	
 	for(var i = 0; i < obj.playerStats.Statistics.length; i++){
 		if(obj.playerStats.Statistics[i].StatisticName == LeaderboardName){
 			if(obj.playerStats.Statistics[i].Value < currentScore){
@@ -36,7 +38,7 @@ handlers.updateLeaderboard = function (args, context){
 		response = "older score is better.";
 	}
 
-	return { messageValue: response };
+	return { playerStats };
 };
 
 handlers.helloWorld = function (args, context) {
