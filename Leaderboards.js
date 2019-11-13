@@ -22,13 +22,10 @@ handlers.updateLeaderboard = function (args, context){
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
-			  return { messageValue: playerStats.Statistics[i].Value };
 			}
 		}
 	}
 
-	return { messageValue: currentScore };
-	
 	//check new score is better than old score
 	if(NewScore < currentScore){
 		server.UpdatePlayerStatistics(
