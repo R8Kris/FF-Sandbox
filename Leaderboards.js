@@ -15,23 +15,18 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
-	var currentScore = Number.MAX_VALUE;
-
-	return { messageValue: currentScore };
+	
 	var arrayLength = playerStats.Statistics.length;
 	
-	
-	
 	for(var i = 0; i < arrayLength; i++){
-
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
 			}
 		}
 	}
-	
-	
+
+	return { messageValue: currentScore };
 	
 	//check new score is better than old score
 	if(NewScore < currentScore){
