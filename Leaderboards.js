@@ -13,15 +13,15 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
-	//server.UpdatePlayerStatistics(
-	//{
-	//    PlayFabId: currentPlayerId,
-	//    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
-	//});
+	server.UpdatePlayerStatistics(
+	{
+	    PlayFabId: currentPlayerId,
+	    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
+	});
 	
 	// Showing we are leaving function
 	log.info("UpdateLeaderboard -- Leaving");
-	return { playerStats };
+	return { playerStats.Statistics };
 };
 
 handlers.helloWorld = function (args, context) {
