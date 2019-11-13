@@ -3,8 +3,8 @@ handlers.updateLeaderboard = function (args, context){
 	// Showing we are entering function
 	log.info("UpdateLeaderboard -- Starting");
 		
-	var LeaderboardName = args.LeaderboardName;
-	var NewScore = args.NewScore;
+	var LeaderboardName = args.leaderboardname;
+	var NewScore = args.newscore;
 	var message = currentPlayerId + " " + LeaderboardName + " " + NewScore;
 	//server.UpdatePlayerStatistics(
 	//{
