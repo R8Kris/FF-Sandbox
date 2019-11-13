@@ -20,7 +20,6 @@ handlers.updateLeaderboard = function (args, context){
 	
 	for(var i = 0; i < arrayLength; i++){
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
-			return { messageValue: playerStats.Statistics[i].Value };
 			if(playerStats.Statistics[i].Value < currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
 			  return { messageValue: playerStats.Statistics[i].Value };
