@@ -7,6 +7,8 @@ handlers.updateLeaderboard = function (args, context){
 	
 	//do error checking here
 	
+	response = leaderboardData["Mannahatta_Forward_F3000"].BestPossibleTime;
+	return { messageValue: response };
 	
 	//get old value
 	var playerStats = server.GetPlayerStatistics(
