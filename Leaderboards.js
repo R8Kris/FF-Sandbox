@@ -17,12 +17,10 @@ handlers.updateLeaderboard = function (args, context){
 	
 	var currentScore = Number.MAX_SAFE_NUMBER;
 	
-	const obj = JSON.parse(playerStats);
-	
-	for(var i = 0; i < obj.playerStats.Statistics.length; i++){
-		if(obj.playerStats.Statistics[i].StatisticName == LeaderboardName){
-			if(obj.playerStats.Statistics[i].Value < currentScore){
-			  currentScore = obj.playerStats.Statistics[i].Value;
+	for(var i = 0; i < playerStats.Statistics.length; i++){
+		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
+			if(playerStats.Statistics[i].Value < currentScore){
+			  currentScore = playerStats.Statistics[i].Value;
 			}
 		}
 	}
