@@ -6,11 +6,11 @@ handlers.updateLeaderboard = function (args, context){
 	var LeaderboardName = args.LeaderboardName;
 	var NewScore = args.NewScore;
 	var message = currentPlayerId + " " + LeaderboardName + " " + NewScore;
-	server.UpdatePlayerStatistics(
-	{
-	    PlayFabId: currentPlayerId,
-	    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
-	});
+	//server.UpdatePlayerStatistics(
+	//{
+	//    PlayFabId: currentPlayerId,
+	//    Statistics: [{StatisticName: LeaderboardName, Value: NewScore}],
+	//});
 	
 	// Showing we are leaving function
 	log.info("UpdateLeaderboard -- Leaving");
