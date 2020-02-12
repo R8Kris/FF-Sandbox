@@ -41,6 +41,7 @@ handlers.convertRegionsToLocations = function (args, context){
 				return { messageValue: ["madrid"] };
 
             case "WestUs":
+				return { messageValue: ["frankfurt", "amsterdam", "london"] };
 				return { messageValue: ["san_jose"] };
         }
     }
