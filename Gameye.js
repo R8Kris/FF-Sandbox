@@ -12,7 +12,7 @@ handlers.startGameyeServer = function (args, context) {
             Data: { MatchReady: true, MatchResult: createGameyeServerResult },
             Permission: "public",
         });
-        return { server: createGameyeServerResult };
+        return { server: createGameyeServerResult, key: gameyeEnv.gameye_token };
 
     }
     catch (ex) {
