@@ -12,7 +12,8 @@ handlers.startGameyeServer = function (args, context) {
             Data: { MatchReady: true, MatchResult: createGameyeServerResult },
             Permission: "public",
         });
-        return { server: createGameyeServerResult, key: gameyeEnv.gameye_token };
+		log.debug(gameyeEnv.gameye_token);
+        return { server: createGameyeServerResult };
 
     }
     catch (ex) {
