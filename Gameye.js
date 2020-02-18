@@ -22,7 +22,7 @@ handlers.startGameyeServer = function (args, context) {
 }
 
 handlers.getServerInfo = function (args, context) {
-    const { matchKey } = args.matchKey;
+    const matchKey = args.matchKey;
     const { Data: gameyeEnv } = server.GetTitleInternalData({
         Keys: ["gameye_token", "gameye_url"]
     });
