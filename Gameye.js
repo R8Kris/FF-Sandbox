@@ -30,7 +30,7 @@ handlers.getServerInfo = function (args, context) {
     try {
         const result = http.request(gameyeEnv.gameye_url + "/fetch/match", 'get', JSON.stringify({}), 'application/json', { "Authorization": "Bearer " + gameyeEnv.gameye_token, "Content-type": "application/json" }, false);
         const getGameyeMatchesResult = JSON.parse(result);
-        log.debug("Gameye matches result: ", getGameyeMatchesResult);
+        log.debug(matchKey);
 		log.debug(getGameyeMatchesResult);
         if (getGameyeMatchesResult.match[matchKey]) {
             return { server: getGameyeMatchesResult.match[matchKey] };
