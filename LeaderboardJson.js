@@ -32,7 +32,7 @@ var leaderboardData = {
 	"Midtown_Forward_F3000" :
 	{
 		"Length" : 6437,
-		"BestPossibleTime" : 35111
+		"BestPossibleTime" : -35111
 		
 	},
 	"Midtown_Reverse_F3000" :
