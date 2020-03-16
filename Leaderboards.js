@@ -33,7 +33,7 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
-	var currentScore=Number.MIN_VALUE;
+	var currentScore= -Number.MAX_VALUE;
 	var arrayLength = playerStats.Statistics.length;
 	
 	for(var i = 0; i < arrayLength; i++){
