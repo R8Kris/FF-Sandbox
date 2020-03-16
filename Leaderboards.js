@@ -17,7 +17,7 @@ handlers.updateLeaderboard = function (args, context){
 	}
 	
 	if(leaderboardData.hasOwnProperty(str)){
-		if(NewScore < leaderboardData[str].BestPossibleTime){
+		if(NewScore > leaderboardData[str].BestPossibleTime){
 			response="This simply isn't even possible.";
 			return { messageValue: response };
 		}
@@ -33,19 +33,19 @@ handlers.updateLeaderboard = function (args, context){
 		StatisticNames: [LeaderboardName],
 	});
 	
-	var currentScore=Number.MAX_VALUE;
+	var currentScore=Number.MIN_VALUE;
 	var arrayLength = playerStats.Statistics.length;
 	
 	for(var i = 0; i < arrayLength; i++){
 		if(playerStats.Statistics[i].StatisticName == LeaderboardName){
-			if(playerStats.Statistics[i].Value < currentScore){
+			if(playerStats.Statistics[i].Value > currentScore){
 			  currentScore = playerStats.Statistics[i].Value;
 			}
 		}
 	}
 
 	//check new score is better than old score
-	if(NewScore < currentScore){
+	if(NewScore > currentScore){
 		server.UpdatePlayerStatistics(
 		{
 			PlayFabId: currentPlayerId,
