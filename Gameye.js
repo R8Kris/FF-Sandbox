@@ -51,7 +51,7 @@ handlers.matchFound = function (args, context) {
         server.CreateSharedGroup({ SharedGroupId: matchId });
         server.UpdateSharedGroupData({
             SharedGroupId: matchId,
-            Data: { Creator: psEvent.Payload.TicketIds[0] },
+            Data: { Creator: psEvent.Payload.TicketIds[0], Members: ps.Event.Payload.TicketIds.length },
             Permission: "public",
         });
     } catch (ex) {

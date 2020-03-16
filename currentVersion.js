@@ -1,0 +1,1 @@
+var currentVersion = "123.456.789-xx-xx-xxx-xx-xx-xx"
